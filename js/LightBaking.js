@@ -2258,16 +2258,28 @@
      * @param textureHeight Texture height.
      */
     function updateLightMapTextureOnMesh(texBuf, mesh, textureWidth, textureHeight) {
+/*
+        var canv = document.createElement('canvas');
+        canv.width = width;
+        canv.height = height;
+        var ctx = canv.getContext('2d');
+        var idata = ctx.createImageData(width, height);
+*/
         var tex;
-        tex = new THREE.DataTexture(new Uint8Array(texBuf), textureWidth, textureHeight);
+        var bytes = new Uint8Array(texBuf);
+       // for(var i=0;i<bytes.length;i++)if((i%2)==0)bytes[i]=0|(Math.random()*256)
+        tex = new THREE.DataTexture(bytes, textureWidth, textureHeight);
+        //tex = new THREE.DataTexture(new Uint8Array(texBuf), textureWidth, textureHeight);
         tex.needsUpdate = true;
 
         // https://github.com/mrdoob/three.js/wiki/Updates
 
         // we need groupsNeedUpdate because otherwise we don't have a second uv set on our mesh
+        mesh.geometry.elementsNeedUpdate = true;
         mesh.geometry.groupsNeedUpdate = true;
         mesh.geometry.uvsNeedUpdate = true;
         mesh.material.lightMap = tex;
+        //mesh.material.map = tex;
         mesh.material.needsUpdate = true;
     }
 
@@ -2476,6 +2488,11 @@
 
                                     }
 
+                                    (textureLoadingMechanism.pop())();
+
+                                },function(err){
+                                    
+                                    log("textureLoading() - Texture load failed for path: " +path);
                                     (textureLoadingMechanism.pop())();
 
                                 });
@@ -2936,6 +2953,14 @@
      * @returns {*}
      */
     function sceneToJSON() {
+                __scene.traverse(
+                    function (mesh) {
+                        if (mesh.material) {
+                            //mesh.material.lightMap = null
+                            //mesh.material.map = null
+                        }
+                    }
+                    );
 
         var json = __scene.toJSON();
 
