@@ -121,7 +121,7 @@
 
         // LIGHT
 
-        var light = new THREE.AreaLight( 0xFFFFFF, 1.0 );
+        var light = new (THREE.RectAreaLight?THREE.RectAreaLight:THREE.AreaLight)( 0xFFFFFF, 1.0 ,10,1);
         light.position.set( 0, 9, 0 );
         light.width = 10;
         light.height = 1;

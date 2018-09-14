@@ -1,7 +1,7 @@
-LightBaking.js (r71)
+LightBaking.js
 ========
 
-#### Light Baking for three.js r71 ####
+#### Light Baking for three.js ####
 
 The aim of this project is to provide light baking functionality for [THREE.js WebGL library](http://mrdoob.github.com/three.js/).
 This project handles everything from UV mapping to baking the light for the whole scene with Path Tracing and filter the maps to get a smooth result even with lower resolution maps.
@@ -9,7 +9,7 @@ This project handles everything from UV mapping to baking the light for the whol
 edit: This is a fork by manthrax, attempting to get this running with current three.js
 
 ```html
-This build is stable for THREE.js r71
+This build might not be stable for THREE.js
 ```
 
 ## Features
@@ -28,6 +28,7 @@ This build is stable for THREE.js r71
 
 Live Examples:
 * [Cornell Box](https://cdn.rawgit.com/manthrax/lightbaking/master/examples/CornellBox.html)
+* [Cornell Box_Textured](https://cdn.rawgit.com/manthrax/lightbaking/master/examples/CornellBox_Textured.html)
 * [Colored Lights](https://cdn.rawgit.com/manthrax/lightbaking/master/examples/ColoredLights.html)
 * [Mailbox](https://cdn.rawgit.com/manthrax/lightbaking/master/examples/Mailbox.html)
 
@@ -152,7 +153,7 @@ lightBaking = THREE.LightBaking( {
          // how to integrate over the hemisphere
          // direction for the rays [0-1],
          //   0: only in normal direction
-         //   1: 180° direction(ideal diffuse)
+         //   1: 180ï¿½ direction(ideal diffuse)
          "importanceValue":1,
 
          // specificMeshBaking

@@ -234,8 +234,9 @@
 
         return point;
     };
-
-    THREE.AreaLight.prototype.randomAreaPoint = function () {
+    var areaLightType = (THREE.RectAreaLight?THREE.RectAreaLight:THREE.AreaLight);
+    
+    areaLightType.prototype.randomAreaPoint = function () {
 
         var point = generateRandomPointOnPlane(this.quaternion, this.width, this.height);
         point.add(this.position);
@@ -2941,7 +2942,7 @@
         json.object.children.forEach(function (ele) {
 
             // AreaLight is not handled atm, so we do it
-            if (ele.type === "AreaLight") {
+            if (ele.type === (THREE.RectAreaLight?"RectAreaLight":"AreaLight")) {
 
                 __scene.traverse(
                     function (mesh) {
@@ -3990,7 +3991,7 @@
 
             }
 
-            if (_config.softShadows === true && ((light instanceof THREE.PointLight && light.userData.radius !== undefined) || light instanceof THREE.AreaLight )) {
+            if (_config.softShadows === true && ((light instanceof THREE.PointLight && light.userData.radius !== undefined) || light instanceof (THREE.RectAreaLight?THREE.RectAreaLight:THREE.AreaLight) )) {
 
                 divFactor = _config.softShadowIntensity / _config.softShadowSamples;
 

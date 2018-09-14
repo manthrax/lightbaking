@@ -179,9 +179,9 @@ var workerCtx = (function () {
             // ADD AREALIGHT!
             evt.data.sceneJSON.object.children.forEach(function (data) {
 
-                if (data.type === "AreaLight") {
+                if (data.type === (THREE.RectAreaLight?"RectAreaLight":"AreaLight")) {
 
-                    object = new THREE.AreaLight(data.color, data.intensity);
+                    object = new (THREE.RectAreaLight?THREE.RectAreaLight:THREE.AreaLight)(data.color, data.intensity,data.width,data.height);
 
                     object.width = data.width;
                     object.height = data.height;
