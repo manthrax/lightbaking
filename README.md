@@ -6,6 +6,8 @@ LightBaking.js (r71)
 The aim of this project is to provide light baking functionality for [THREE.js WebGL library](http://mrdoob.github.com/three.js/).
 This project handles everything from UV mapping to baking the light for the whole scene with Path Tracing and filter the maps to get a smooth result even with lower resolution maps.
 
+edit: This is a fork by manthrax, attempting to get this running with current three.js
+
 ```html
 This build is stable for THREE.js r71
 ```
@@ -25,9 +27,9 @@ This build is stable for THREE.js r71
 ## Examples
 
 Live Examples:
-* [Cornell Box](https://cdn.rawgit.com/mem1b/lightbaking/master/examples/CornellBox.html)
-* [Colored Lights](https://cdn.rawgit.com/mem1b/lightbaking/master/examples/ColoredLights.html)
-* [Mailbox](https://cdn.rawgit.com/mem1b/lightbaking/master/examples/Mailbox.html)
+* [Cornell Box](https://cdn.rawgit.com/manthrax/lightbaking/master/examples/CornellBox.html)
+* [Colored Lights](https://cdn.rawgit.com/manthrax/lightbaking/master/examples/ColoredLights.html)
+* [Mailbox](https://cdn.rawgit.com/manthrax/lightbaking/master/examples/Mailbox.html)
 
 Pictures:
 * [Cornell Box](http://web.fhnw.ch/technik/projekte/i/bachelor15/tschudy-link/img/cornell_algorithm.png)
@@ -44,8 +46,8 @@ Pictures:
 
 ## Usage
 Download the following scripts:
-* Mandatory [script](https://github.com/mem1b/lightbaking/tree/master/js/LightBaking.js)
-* Optional only for using workers [script](https://github.com/mem1b/lightbaking/tree/master/js/LightBakingWorker.js)
+* Mandatory [script](https://github.com/manthrax/lightbaking/tree/master/js/LightBaking.js)
+* Optional only for using workers [script](https://github.com/manthrax/lightbaking/tree/master/js/LightBakingWorker.js)
 * Optional for import/export [script](https://github.com/Stuk/jszip/blob/master/dist/jszip.min.js)
 * Optional for import/export [script](https://github.com/Stuk/jszip-utils/tree/master/dist/jszip-utils.min.js)
 
@@ -217,7 +219,7 @@ lightBaking.exportLightMaps()
 ```
 
 #### Editor
-To add our baking solution to the three.js editor you need to add the [Sidebar.LightBaking.js](https://github.com/mem1b/lightbaking/tree/master/js/Sidebar.LightBaking.js) into the editor/js folder.
+To add our baking solution to the three.js editor you need to add the [Sidebar.LightBaking.js](https://github.com/manthrax/lightbaking/tree/master/js/Sidebar.LightBaking.js) into the editor/js folder.
 In addition, include the following files in the editors index.html:
 ```html
 <script src="LightBaking.js"></script>
@@ -231,4 +233,4 @@ In addition, include the following files in the editors index.html:
 ---
 
 *Copyright (C) 2015 [Dominik Link](https://github.com/paradoxxl/), [Jan Pascal Tschudy](https://github.com/mem1b), [FHNW](http://www.fhnw.ch/)*
-*For full license and information, see [LICENSE](https://mem1b.github.com/lightbaking/LICENSE).*
+*For full license and information, see [LICENSE](https://manthrax.github.com/lightbaking/LICENSE).*

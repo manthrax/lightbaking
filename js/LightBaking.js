@@ -2427,6 +2427,7 @@
 
                         var bakeMe;
                         var intersectMe;
+                        if(!mesh.userData.baking)mesh.userData.baking = {};  //MikeS. Adding this to prevent NPE when resetUserData = true
 
                         if (_config.resetUserData) {
 
